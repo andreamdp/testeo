@@ -1,0 +1,12 @@
+ from aplic.models import Persona
+  from csvImporter.model import CsvDbModel
+class Persona(models.Model):
+  name = models.CharField()
+    class Meta:
+        app_label="aplic"
+ class MyCsvModel(CsvDbModel):
+   name = models.CharField()
+  class Meta:
+        delimiter = ";"
+       dbModel = Persona
+my_csv_list = MyCsvModel.import_data(data = open("my_csv_file_name.csv"))
